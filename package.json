@@ -1,0 +1,55 @@
+{
+  "name": "biskott-plugins",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "rm -rf ./dist && tsc -p ./tsconfig.prod.json",
+    "dev": "ts-node-dev --poll --inspect=0.0.0.0:9229 --respawn --notify=false -- ./src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts,*.tsx": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.0",
+    "torrent-indexer": "^1.2.0",
+    "yup": "^0.28.3"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.17",
+    "@types/express": "^4.17.4",
+    "@types/morgan": "^1.9.0",
+    "@types/node": "^13.11.0",
+    "@types/node-fetch": "^2.5.5",
+    "@types/yup": "^0.26.34",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.2",
+    "prettier": "^2.0.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
+  }
+}
