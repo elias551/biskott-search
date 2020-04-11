@@ -4,12 +4,15 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "build": "rm -rf ./dist && tsc -p ./tsconfig.prod.json",
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && tsc -p ./tsconfig.prod.json",
     "dev": "ts-node-dev --poll --inspect=0.0.0.0:9229 --respawn --notify=false -- ./src/index.ts",
     "start": "node dist/index.js",
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "12.x"
   },
   "husky": {
     "hooks": {
@@ -31,6 +34,7 @@
     "express-async-errors": "^3.1.1",
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.0",
+    "rimraf": "^3.0.2",
     "torrent-indexer": "^1.2.0",
     "yup": "^0.28.3"
   },
