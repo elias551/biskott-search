@@ -36,6 +36,7 @@ export class OxTorrentSearch implements ISearchPlugin {
                     { url: data.url, seeders, leechers, quality: "default" },
                   ],
                   poster: data.poster ? BASE_URL + data.poster : undefined,
+                  genres: [],
                 }
           )
         })

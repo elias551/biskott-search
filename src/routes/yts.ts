@@ -1,11 +1,13 @@
 import { RequestHandler, Router } from "express"
-import { YtsSearch } from "../search/YtsSearch"
+import { YtsSearch, ytsGenres, ytsSortFilters } from "../search/YtsSearch"
 import { getSearchQuery } from "../utils"
 
 const announceHandler: RequestHandler = async (req, res) => {
   res.json({
     name: "Yts",
     description: "Use YTS API to lookup movies.",
+    genres: ytsGenres,
+    sortFilters: ytsSortFilters,
   })
 }
 

@@ -28,4 +28,5 @@ const toSearchResult = (r: TISearchResult): SearchResult => ({
       quality: r.resolution,
     },
   ],
+  genres: [],
 })

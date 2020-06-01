@@ -9,7 +9,10 @@ const schema = Yup.object().shape<SearchQuery>({
 export const getSearchQuery = async (query: any) => {
   const searchQuery: SearchQuery = {
     page: +query.page || 1,
-    term: decodeURIComponent(query.term),
+    term: query.term ? decodeURIComponent(query.term) : undefined,
+    genre: query.genre || undefined,
+    sortBy: query.sortBy || undefined,
+    orderBy: query.orderBy || undefined,
   }
 
   const isValid = await schema.isValid(searchQuery)
